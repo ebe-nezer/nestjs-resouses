@@ -24,7 +24,7 @@
 
 ***
 
-## 🏗️ Core Building Blocks
+## Core Building Blocks
 
 ### Modules
 
@@ -100,7 +100,7 @@ export class UsersService {
 
 ***
 
-## 🔄 Request Lifecycle
+## Request Lifecycle
 
 Understanding the request lifecycle is critical for knowing where to place your logic.
 
@@ -118,7 +118,7 @@ Understanding the request lifecycle is critical for knowing where to place your 
 
 ***
 
-## 🌐 HTTP Route Decorators
+## HTTP Route Decorators
 
 ```typescript
 @Get('profile')           // GET /users/profile
@@ -134,7 +134,7 @@ Understanding the request lifecycle is critical for knowing where to place your 
 
 ***
 
-## 📥 Parameter Decorators
+## Parameter Decorators
 
 Extract data from incoming requests:
 
@@ -158,7 +158,7 @@ findOne(
 
 ***
 
-## 💉 Dependency Injection
+## Dependency Injection
 
 NestJS uses constructor-based injection for automatic dependency management.
 
@@ -196,7 +196,7 @@ export class CatsService {
 
 ***
 
-## 🔌 Middleware
+## Middleware
 
 Middleware functions execute **before** route handlers.
 
@@ -228,7 +228,7 @@ export function logger(req: Request, res: Response, next: NextFunction) {
 
 ***
 
-## 🛡️ Guards
+## Guards
 
 Guards determine if a request should be handled based on certain conditions (authentication, authorization).
 
@@ -257,7 +257,7 @@ app.useGlobalGuards(new AuthGuard());
 
 ***
 
-## 🔄 Interceptors
+## Interceptors
 
 Interceptors bind extra logic before/after method execution.
 
@@ -293,7 +293,7 @@ export class CatsController {}
 
 ***
 
-## 🔧 Pipes
+## Pipes
 
 Pipes transform and validate input data.
 
@@ -338,7 +338,7 @@ export class ParseIntPipe implements PipeTransform<string, number> {
 
 ***
 
-## ⚠️ Exception Filters
+## Exception Filters
 
 Handle and format exceptions across your application.
 
@@ -369,7 +369,7 @@ export class CatsController {}
 
 ***
 
-## 🎨 Custom Decorators
+## Custom Decorators
 
 Create reusable decorators for common patterns.
 
@@ -414,7 +414,7 @@ getAdmin() {}
 
 ***
 
-## ✅ Validation with DTOs
+## Validation with DTOs
 
 ```typescript
 // create-user.dto.ts
@@ -455,7 +455,7 @@ app.useGlobalPipes(new ValidationPipe({
 
 ***
 
-## ⚙️ Configuration
+## Configuration
 
 ```typescript
 // .env file
@@ -487,7 +487,7 @@ export class AppService {
 
 ***
 
-## 🗄️ TypeORM Integration
+## TypeORM Integration
 
 ```typescript
 // Entity
@@ -549,7 +549,7 @@ export class UsersService {
 
 ***
 
-## 🧪 Testing
+## Testing
 
 ```typescript
 // Unit test
@@ -597,7 +597,7 @@ describe('CatsController (e2e)', () => {
 
 ***
 
-## 🛠️ CLI Commands
+## CLI Commands
 
 ```bash
 # Create new project
@@ -627,7 +627,7 @@ npm run build          # Build project
 
 ***
 
-## 🎯 Common Patterns
+## Common Patterns
 
 ### Global Prefix
 
@@ -690,7 +690,7 @@ create() {}
 
 ***
 
-## 📚 Additional Resources
+## Additional Resources
 
 - [Official Documentation](https://docs.nestjs.com)
 - [NestJS GitHub](https://github.com/nestjs/nest)
@@ -699,7 +699,7 @@ create() {}
 
 ***
 
-## 📄 License
+## License
 
 This cheatsheet is provided as-is for educational purposes.
 
