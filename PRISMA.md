@@ -1,4 +1,4 @@
-## 🎯 Prisma Core Concepts
+# Prisma Core Concepts
 
 ### 1. The Big Picture
 
@@ -383,8 +383,306 @@ DATABASE_URL="postgresql://user:password@host:5432/dbname"
 - Video tutorial: "Learn Prisma In 60 Minutes"[^2]
 - Error codes: Check `error.code` for specific Prisma errors[^3]
 
-This covers 95% of what you'll use daily. Practice with your PropertyBooking and TimeSlot models - you'll master it quickly![^27][^2]
-<span style="display:none">[^28][^29][^30][^31][^32][^33]</span>
+---------
+# Complete Prisma Keywords Reference
+
+Here's a comprehensive list of all Prisma keywords organized by category:
+
+## Schema Definition Keywords
+
+### Top-Level Blocks
+
+- `datasource` - Defines database connection
+- `generator` - Configures code generation
+- `model` - Defines a data model (table/collection)
+- `enum` - Defines enumeration type
+- `type` - Defines composite types (MongoDB only)
+
+
+### Datasource Keywords
+
+- `provider` - Database type (postgresql, mysql, sqlite, mongodb, cockroachdb, sqlserver)
+- `url` - Database connection string
+- `shadowDatabaseUrl` - Shadow database for migrations
+- `relationMode` - Relation handling mode (foreignKeys, prisma)
+
+
+### Generator Keywords
+
+- `provider` - Generator provider (prisma-client-js, prisma-client-py, etc.)
+- `output` - Output directory for generated client
+- `binaryTargets` - Target platforms for Prisma binaries
+- `previewFeatures` - Enable preview features
+- `engineType` - Engine type (library, binary)
+
+
+## Field Type Keywords
+
+### Scalar Types
+
+- `String` - Text/string data
+- `Boolean` - True/false values
+- `Int` - Integer numbers
+- `BigInt` - Large integers
+- `Float` - Floating-point numbers
+- `Decimal` - Precise decimal numbers
+- `DateTime` - Date and time
+- `Json` - JSON data
+- `Bytes` - Binary data
+
+
+### Type Modifiers
+
+- `[]` - Array/list type
+- `?` - Optional/nullable field
+
+
+## Field Attributes (Single @)
+
+### Core Attributes
+
+- `@id` - Primary key
+- `@unique` - Unique constraint
+- `@default()` - Default value
+- `@relation()` - Define relationships
+- `@map()` - Map field name to database column
+- `@updatedAt` - Auto-update timestamp
+- `@ignore` - Ignore field in Prisma Client
+- `@db` - Native database type attributes
+
+
+### Database-Specific Attributes
+
+- `@db.VarChar(n)` - Variable character with length
+- `@db.Text` - Text type
+- `@db.TinyInt` - Tiny integer
+- `@db.SmallInt` - Small integer
+- `@db.MediumInt` - Medium integer
+- `@db.Integer` - Integer
+- `@db.BigInt` - Big integer
+- `@db.Real` - Real number
+- `@db.DoublePrecision` - Double precision
+- `@db.Money` - Money type
+- `@db.Decimal(p,s)` - Decimal with precision/scale
+- `@db.Date` - Date only
+- `@db.Time` - Time only
+- `@db.Timestamp` - Timestamp
+- `@db.Timestamptz` - Timestamp with timezone
+- `@db.Uuid` - UUID type
+- `@db.Xml` - XML type
+- `@db.ObjectId` - MongoDB ObjectId
+
+
+## Model Attributes (Double @@)
+
+- `@@id()` - Composite primary key
+- `@@unique()` - Composite unique constraint
+- `@@index()` - Database index
+- `@@map()` - Map model name to database table
+- `@@ignore` - Ignore entire model
+- `@@schema()` - Multi-schema support
+
+
+## Default Value Functions
+
+### Auto-Generation
+
+- `autoincrement()` - Auto-incrementing integer
+- `cuid()` - CUID generator
+- `uuid()` - UUID generator
+- `now()` - Current timestamp
+- `dbgenerated()` - Database-generated value
+
+
+### Sequence (PostgreSQL)
+
+- `sequence()` - Custom sequence
+
+
+## Relation Keywords
+
+### Relation Attributes Parameters
+
+- `fields` - Foreign key fields
+- `references` - Referenced fields
+- `name` - Relation name (for disambiguation)
+- `map` - Foreign key constraint name
+- `onDelete` - Delete action
+- `onUpdate` - Update action
+
+
+### Referential Actions
+
+- `Cascade` - Cascade changes
+- `Restrict` - Restrict changes
+- `NoAction` - No action
+- `SetNull` - Set to null
+- `SetDefault` - Set to default
+
+
+## Query Keywords (Prisma Client)
+
+### CRUD Operations
+
+- `create()` - Create record
+- `createMany()` - Create multiple records
+- `findUnique()` - Find by unique field
+- `findUniqueOrThrow()` - Find or throw error
+- `findFirst()` - Find first matching
+- `findFirstOrThrow()` - Find first or throw
+- `findMany()` - Find multiple records
+- `update()` - Update record
+- `updateMany()` - Update multiple
+- `upsert()` - Update or insert
+- `delete()` - Delete record
+- `deleteMany()` - Delete multiple
+- `count()` - Count records
+- `aggregate()` - Aggregate operations
+- `groupBy()` - Group records
+
+
+### Query Options
+
+- `where` - Filter conditions
+- `select` - Select specific fields
+- `include` - Include relations
+- `orderBy` - Sort results
+- `skip` - Skip records (offset)
+- `take` - Limit results
+- `cursor` - Cursor-based pagination
+- `distinct` - Distinct values
+
+
+### Filter Operators
+
+- `equals` - Exact match
+- `not` - Not equal
+- `in` - In array
+- `notIn` - Not in array
+- `lt` - Less than
+- `lte` - Less than or equal
+- `gt` - Greater than
+- `gte` - Greater than or equal
+- `contains` - String contains
+- `startsWith` - String starts with
+- `endsWith` - String ends with
+- `mode` - Case sensitivity (insensitive, default)
+- `AND` - Logical AND
+- `OR` - Logical OR
+- `NOT` - Logical NOT
+
+
+### Relation Filters
+
+- `some` - At least one matches
+- `every` - All match
+- `none` - None match
+- `is` - Relation is
+- `isNot` - Relation is not
+
+
+### Relation Operations
+
+- `connect` - Connect existing record
+- `disconnect` - Disconnect relation
+- `set` - Set relation
+- `connectOrCreate` - Connect or create
+- `create` - Create nested record
+- `createMany` - Create multiple nested
+- `update` - Update nested record
+- `updateMany` - Update multiple nested
+- `delete` - Delete nested record
+- `deleteMany` - Delete multiple nested
+- `upsert` - Upsert nested record
+
+
+### Aggregation Functions
+
+- `_count` - Count
+- `_avg` - Average
+- `_sum` - Sum
+- `_min` - Minimum
+- `_max` - Maximum
+
+
+### Atomic Operations
+
+- `increment` - Increment number
+- `decrement` - Decrement number
+- `multiply` - Multiply number
+- `divide` - Divide number
+- `set` - Set value
+
+
+### Transaction Keywords
+
+- `$transaction()` - Execute transaction
+- `$executeRaw()` - Execute raw SQL
+- `$executeRawUnsafe()` - Execute unsafe raw SQL
+- `$queryRaw()` - Query raw SQL
+- `$queryRawUnsafe()` - Query unsafe raw SQL
+
+
+## Special Client Methods
+
+- `$connect()` - Connect to database
+- `$disconnect()` - Disconnect from database
+- `$on()` - Event listener
+- `$use()` - Middleware
+- `$extends()` - Client extensions
+
+
+## Environment Variables
+
+- `DATABASE_URL` - Database connection string
+- `SHADOW_DATABASE_URL` - Shadow database URL
+- `PRISMA_QUERY_ENGINE_LIBRARY` - Query engine path
+- `PRISMA_QUERY_ENGINE_BINARY` - Query engine binary
+- `DEBUG` - Debug mode
+
+
+## CLI Commands
+
+- `prisma init` - Initialize Prisma
+- `prisma generate` - Generate Prisma Client
+- `prisma db push` - Push schema to database
+- `prisma db pull` - Pull schema from database
+- `prisma migrate dev` - Create development migration
+- `prisma migrate deploy` - Deploy migrations
+- `prisma migrate reset` - Reset database
+- `prisma migrate status` - Migration status
+- `prisma studio` - Open Prisma Studio
+- `prisma validate` - Validate schema
+- `prisma format` - Format schema file
+
+
+## Preview Features
+
+- `fullTextSearch` - Full-text search
+- `fullTextIndex` - Full-text indexes
+- `metrics` - Metrics API
+- `tracing` - Tracing support
+- `jsonProtocol` - JSON protocol
+- `fieldReference` - Field references
+- `extendedWhereUnique` - Extended unique filters
+- `clientExtensions` - Client extensions
+- `multiSchema` - Multi-schema support
+- `views` - Database views
+- `postgresqlExtensions` - PostgreSQL extensions
+
+
+## Error Codes (Common)
+
+- `P1000` - Authentication failed
+- `P1001` - Can't reach database
+- `P1002` - Database timeout
+- `P1003` - Database doesn't exist
+- `P2000` - Value too long
+- `P2001` - Record not found
+- `P2002` - Unique constraint violation
+- `P2003` - Foreign key constraint violation
+- `P2004` - Constraint failed
+- `P2025` - Record to delete not found
 
 [^1]: https://www.prisma.io/docs/getting-started
 
